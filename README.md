@@ -49,6 +49,18 @@ yarn run build
 npm run build
 ```
 
+### Clé Google Maps
+
+1. Copier le fichier d’exemple : `cp src/js/config.example.js src/js/config.js`
+2. Renseigner votre clé API Google Maps dans `src/js/config.js`
+3. Ne committez pas ce fichier (`src/js/config.js` est ignoré par Git)
+
+### Lead magnet (mini-audit IA/Data)
+
+- Page dédiée : `src/lead-magnet.html`
+- Formulaire : remplacez l’URL Jotform dans l’iframe (`ID_FORMULAIRE_A_REMPLACER`) et configurez l’envoi automatique du PDF + lien Calendly.
+- CTA ajoutés : navigation, hero, services, sections blog et sortie (exit-intent/bannière mobile).
+
 ## Déploiement
 
 ### 1. Sur Vercel
