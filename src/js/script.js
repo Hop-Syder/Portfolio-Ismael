@@ -127,6 +127,29 @@ $(document).ready(function () {
         }
       });
     }
+
+    // Portfolio all sliders (Swiper)
+    var portfolioAllSliders = document.querySelectorAll('.js-portfolioall-swiper');
+    if (portfolioAllSliders.length) {
+      portfolioAllSliders.forEach(function (sliderEl) {
+        var paginationEl = sliderEl.parentElement.querySelector('.portfolioall__pagination');
+        new Swiper(sliderEl, {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          loop: true,
+          speed: 600,
+          effect: 'slide',
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: false
+          },
+          pagination: paginationEl ? {
+            el: paginationEl,
+            clickable: true
+          } : undefined
+        });
+      });
+    }
   }
 
   // Modal Popup

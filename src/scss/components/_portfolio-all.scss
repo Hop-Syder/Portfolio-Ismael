@@ -1,0 +1,177 @@
+.portfolioall {
+  padding: 100px 0 120px;
+
+  @include tablet {
+    padding: 80px 0;
+  }
+
+  &__header {
+    margin-bottom: 60px;
+
+    span {
+      display: block;
+      font-size: 18px;
+      font-family: $secondary-font;
+      color: $primary-color;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-family: $primary-font;
+      color: $secondary-color;
+      font-size: 38px;
+      line-height: 1.1;
+      margin: 0 0 12px 0;
+
+      @include tablet {
+        font-size: 32px;
+      }
+    }
+
+    p {
+      margin: 0;
+      color: $text-color;
+    }
+  }
+
+  &__item {
+    background: $white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 17, 62, 0.08);
+    padding: 28px;
+    margin-bottom: 40px;
+
+    @include tablet {
+      padding: 20px;
+    }
+  }
+
+  &__slider-wrapper {
+    height: 100%;
+    min-height: 300px; /* Minimum height for mobile */
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: $gray;
+
+    @include tablet {
+      height: 300px; /* Fixed height for tablet/mobile to ensure visibility */
+      margin-bottom: 24px;
+    }
+  }
+
+  .js-portfolioall-swiper {
+    height: 100%;
+  }
+
+  .swiper-slide {
+    height: 100%; /* Ensure slide fills the wrapper */
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__pagination {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    .swiper-pagination-bullet {
+      background: rgba(0, 0, 0, 0.2);
+      opacity: 1;
+      width: 8px;
+      height: 8px;
+      transition: all 0.2s ease;
+
+      &-active {
+        background: $primary-color;
+        width: 16px;
+        border-radius: 12px;
+      }
+    }
+  }
+
+  &__content {
+    background: #f9f9fb;
+    border-radius: 16px;
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+
+    @include tablet {
+      margin-top: 18px;
+    }
+
+    h3 {
+      font-family: $primary-font;
+      font-size: 28px;
+      line-height: 1.2;
+      color: $secondary-color;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      color: $text-color;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+
+      li {
+        color: $text-color-dark;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+    }
+
+    .see-more-btn {
+      display: inline-block;
+      margin-top: 6px;
+      font-family: $secondary-font;
+      color: $primary-color;
+      text-decoration: none;
+      position: relative;
+      font-weight: 600;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 20px;
+        left: -28px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: $primary-color;
+      }
+
+      &:hover {
+        color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  &__tag {
+    display: inline-block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: rgba($primary-color, 0.12);
+    color: $secondary-color;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-weight: 600;
+  }
+}
