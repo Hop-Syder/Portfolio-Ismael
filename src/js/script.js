@@ -106,8 +106,8 @@ $(document).ready(function () {
     this.destroy();
   }, { offset: '80%' });
 
-  // Testimonial slider (Swiper)
-  if (window.Swiper) {
+  // Testimonial slider (Swiper) - Désactivé pour le passage en grille fixe
+  if (false && window.Swiper) {
     var testimonialSliderEl = document.querySelector('.testimonial__slider');
     if (testimonialSliderEl) {
       new Swiper(testimonialSliderEl, {
