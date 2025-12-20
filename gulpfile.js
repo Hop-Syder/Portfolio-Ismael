@@ -14,7 +14,7 @@ const uglifycss = require("gulp-uglifycss");
 const path = {
   src: {
     html: "src/*.html",
-    others: "src/*.+(php|ico|png)",
+    others: "src/*.+(php|ico|png|txt|xml)",
     htminc: "src/partials/**/*.htm",
     incdir: "src/partials/",
     articles: "src/partials/articles/**/*.htm", // <-- ajout

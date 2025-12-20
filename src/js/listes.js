@@ -109,6 +109,15 @@ function loadArticleContent() {
     const articleId = getArticleIdFromUrl();
     const article = articles.find(a => a.id === articleId) || articles[0];
 
+    // Mise à jour du titre SEO
+    document.title = `${article.titre} | DAOUDA ABASSI Ismaël Christian`;
+
+    // Mise à jour de la meta description (optionnel mais recommandé)
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.setAttribute('content', article.titre);
+    }
+
     fetch(`partials/articles/${article.file}`)
         .then(res => res.text())
         .then(data => {
