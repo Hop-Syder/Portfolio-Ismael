@@ -122,11 +122,29 @@ function loadArticleContent() {
         .then(res => res.text())
         .then(data => {
             document.getElementById('article-content').innerHTML = data;
+            // Mise à jour des liens de partage social
+            updateSocialShareLinks(article.titre);
         })
         .catch(err => {
             console.error("Erreur de chargement:", err);
             document.getElementById('article-content').innerHTML = "<p>Erreur de chargement de l’article.</p>";
         });
+}
+
+// Fonction pour mettre à jour les liens de partage social
+function updateSocialShareLinks(articleTitle) {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(articleTitle);
+
+    const whatsapp = document.getElementById('share-whatsapp');
+    const linkedin = document.getElementById('share-linkedin');
+    const facebook = document.getElementById('share-facebook');
+    const twitter = document.getElementById('share-x');
+
+    if (whatsapp) whatsapp.href = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+    if (linkedin) linkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    if (facebook) facebook.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    if (twitter) twitter.href = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
 }
 
 // Charger titre général (utile si tu veux une page blog.html avec des catégories)
