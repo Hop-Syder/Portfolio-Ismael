@@ -101,6 +101,9 @@ const fonts = () =>
 const others = () =>
   src(path.src.others).pipe(dest(path.build.dir)).pipe(bs.reload({ stream: true }));
 
+const htaccess = () =>
+  src("src/.htaccess").pipe(dest(path.build.dir)).pipe(bs.reload({ stream: true }));
+
 // Copier les fichiers articles
 const articles = () => {
   console.log('Copie des articles depuis', path.src.articles, 'vers', path.build.dir + 'partials/articles/');
@@ -129,13 +132,13 @@ exports.default = series(
   clean,
   html,
   parallel(scssDev, js),
-  parallel(images, vendor, fonts, others, articles)
+  parallel(images, vendor, fonts, others, htaccess, articles)
 );
 
 exports.dev = series(
   html,
   parallel(scss, js),
-  parallel(images, vendor, fonts, others, articles),
+  parallel(images, vendor, fonts, others, htaccess, articles),
   parallel(watchTask, function () {
     bs.init({
       server: {
